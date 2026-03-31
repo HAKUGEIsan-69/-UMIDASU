@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式会社UMIDASU | 教育×AIトランスフォーメーション</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            base: '#0f172a',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8, #6366f1, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-gradient {
+      background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                  #0f172a;
+    }
+
+    .card-glow:hover {
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.15), 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+
+    .overlay-enter {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .counter-number {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="bg-base text-white antialiased">
+
+  <!-- ヘッダー -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0f172a]/80 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight gradient-text">UMIDASU</a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors">事業内容</a>
+        <a href="#results" class="text-sm text-slate-400 hover:text-white transition-colors">実績</a>
+        <a href="#contact" class="text-sm text-slate-400 hover:text-white transition-colors">お問い合わせ</a>
+      </nav>
+      <!-- モバイルメニューボタン -->
+      <button id="menuBtn" class="md:hidden text-slate-400 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- モバイルメニュー -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-[#0f172a]/95 backdrop-blur-xl">
+      <nav class="flex flex-col px-6 py-4 gap-4">
+        <a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors">事業内容</a>
+        <a href="#results" class="text-sm text-slate-400 hover:text-white transition-colors">実績</a>
+        <a href="#contact" class="text-sm text-slate-400 hover:text-white transition-colors">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- 装飾用グラデーション球 -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl float-animation"></div>
+    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl float-animation" style="animation-delay: -3s;"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-8">
+        <div class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></div>
+        <span class="text-xs font-medium text-indigo-300">教育 × AI トランスフォーメーション</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
+        教育の未来を、<br /><span class="gradient-text">対話から。</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        AIの力で教育現場を革新する。<br class="hidden md:block" />
+        私たちは、教育業界に特化したAIトランスフォーメーションを実現します。
+      </p>
+      <a href="#contact" class="btn-hover inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-base">
+        無料で相談する
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 事業内容セクション -->
+  <section id="services" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-4">Services</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">事業内容</h2>
+      </div>
+
+      <!-- Bentoグリッド -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- カード1 (大) -->
+        <div class="md:col-span-2 group rounded-2xl bg-slate-900/50 border border-white/5 p-8 md:p-10 transition-all duration-500 card-glow hover:border-indigo-500/20">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">AIカリキュラム設計支援</h3>
+          <p class="text-slate-400 leading-relaxed">生成AIを活用した授業設計・教材開発を、戦略策定からPoC（概念実証）、そして本格導入までワンストップで支援。教育現場のニーズに合わせたカスタマイズで、確かな学習効果を実現します。</p>
+        </div>
+
+        <!-- カード2 -->
+        <div class="group rounded-2xl bg-slate-900/50 border border-white/5 p-8 md:p-10 transition-all duration-500 card-glow hover:border-violet-500/20">
+          <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">教職員AI研修</h3>
+          <p class="text-slate-400 leading-relaxed">教職員のAIリテラシー向上を目的とした実践型研修プログラムを提供します。</p>
+        </div>
+
+        <!-- カード3 -->
+        <div class="group rounded-2xl bg-slate-900/50 border border-white/5 p-8 md:p-10 transition-all duration-500 card-glow hover:border-blue-500/20">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">業務プロセスAI最適化</h3>
+          <p class="text-slate-400 leading-relaxed">校務や事務作業のAI自動化で、教育者が本来の「教える」仕事に集中できる環境を構築します。</p>
+        </div>
+
+        <!-- カード4 (大) -->
+        <div class="md:col-span-2 group rounded-2xl bg-gradient-to-br from-indigo-500/5 to-violet-500/5 border border-white/5 p-8 md:p-10 transition-all duration-500 card-glow hover:border-indigo-500/20">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">データ分析・学習効果測定</h3>
+          <p class="text-slate-400 leading-relaxed">AIを活用した学習データの分析で、教育効果を可視化。エビデンスに基づいた教育改善サイクルを実現し、一人ひとりの生徒に最適化された学びを提供します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績セクション -->
+  <section id="results" class="py-32 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-20">
+        <p class="text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-4">Results</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">実績</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-10 rounded-2xl bg-slate-900/50 border border-white/5">
+          <p class="counter-number text-6xl md:text-7xl font-extrabold gradient-text mb-4" data-target="12">0</p>
+          <p class="text-lg text-slate-400">全国の導入校数</p>
+        </div>
+        <div class="text-center p-10 rounded-2xl bg-slate-900/50 border border-white/5">
+          <p class="counter-number text-6xl md:text-7xl font-extrabold gradient-text mb-4" data-target="500">0</p>
+          <p class="text-lg text-slate-400">研修受講者数<span class="text-sm">（累計）</span></p>
+        </div>
+        <div class="text-center p-10 rounded-2xl bg-slate-900/50 border border-white/5">
+          <p class="counter-number text-6xl md:text-7xl font-extrabold gradient-text mb-4" data-target="98" data-suffix="%">0</p>
+          <p class="text-lg text-slate-400">顧客満足度</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- チーム紹介セクション -->
+  <section class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-4">Team</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">チーム</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-slate-900/50 border border-white/5 p-8 flex flex-col items-center justify-center min-h-[280px]">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <p class="text-lg font-semibold text-slate-500 mb-1">Coming Soon</p>
+          <p class="text-sm text-slate-600">メンバー情報を準備中です</p>
+        </div>
+        <div class="rounded-2xl bg-slate-900/50 border border-white/5 p-8 flex flex-col items-center justify-center min-h-[280px]">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <p class="text-lg font-semibold text-slate-500 mb-1">Coming Soon</p>
+          <p class="text-sm text-slate-600">メンバー情報を準備中です</p>
+        </div>
+        <div class="rounded-2xl bg-slate-900/50 border border-white/5 p-8 flex flex-col items-center justify-center min-h-[280px]">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <p class="text-lg font-semibold text-slate-500 mb-1">Coming Soon</p>
+          <p class="text-sm text-slate-600">メンバー情報を準備中です</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせセクション -->
+  <section id="contact" class="py-32 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent"></div>
+    <div class="max-w-2xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-indigo-400 tracking-widest uppercase mb-4">Contact</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight">お問い合わせ</h2>
+        <p class="text-slate-400 mt-4">まずはお気軽にご相談ください。</p>
+      </div>
+
+      <form class="space-y-6" onsubmit="event.preventDefault();">
+        <div>
+          <label class="block text-sm font-medium text-slate-300 mb-2">お名前</label>
+          <input type="text" placeholder="山田 太郎"
+            class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-300 mb-2">メールアドレス</label>
+          <input type="email" placeholder="taro@example.com"
+            class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-300 mb-2">ご所属</label>
+          <input type="text" placeholder="○○大学 / ○○高等学校"
+            class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-300 mb-2">お問い合わせ内容</label>
+          <textarea rows="5" placeholder="ご相談内容をお書きください…"
+            class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all resize-none"></textarea>
+        </div>
+        <button type="submit"
+          class="btn-hover w-full px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-base transition-all">
+          送信する
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="border-t border-white/5 py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-bold gradient-text">UMIDASU</span>
+      <p class="text-sm text-slate-500">&copy; 2025 株式会社UMIDASU. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- エイプリルフール用オーバーレイ -->
+  <div id="aprilOverlay" class="fixed inset-0 z-[9999] bg-[#0f172a]/98 backdrop-blur-xl flex items-center justify-center p-6 hidden">
+    <div class="text-center max-w-lg">
+      <div class="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">エイプリルフール・プロジェクト終了</h2>
+      <p class="text-lg text-slate-400 leading-relaxed">このサイトは<strong class="text-white">（株）UMIDASU</strong>の架空のウェブサイトでした。</p>
+      <div class="mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20">
+        <span class="text-sm text-indigo-300">🎉 April Fools' 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // モバイルメニュー
+    document.getElementById('menuBtn').addEventListener('click', function () {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    // モバイルメニューのリンククリックで閉じる
+    document.querySelectorAll('#mobileMenu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
+    });
+
+    // カウンターアニメーション
+    function animateCounters() {
+      document.querySelectorAll('[data-target]').forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-target'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 2000;
+        var start = 0;
+        var startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+
+        requestAnimationFrame(step);
+      });
+    }
+
+    // Intersection Observer でカウンター発火
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounters();
+          counterObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    var resultsSection = document.getElementById('results');
+    if (resultsSection) {
+      counterObserver.observe(resultsSection);
+    }
+
+    // エイプリルフール判定
+    (function () {
+      var now = new Date();
+      var cutoff = new Date(2025, 3, 2); // 2025年4月2日 (月は0始まり)
+      if (now >= cutoff) {
+        var overlay = document.getElementById('aprilOverlay');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('overlay-enter');
+      }
+    })();
+  </script>
+
+</body>
+</html>
